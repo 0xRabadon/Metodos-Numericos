@@ -1,17 +1,53 @@
-import numpy as np
+def biseccion(fun, a, b, tol, No):
+    """
+    fun es la funcion
+    a es el tope minimo
+    b es el tope maximo
+    tol es la tolerancia
+    No es el numero maximo de iteraciobes
+    """
+    # Paso 1 
+    i = 1
+    fa = fun(a)
+    
+    # # Paso 2 y corroboracion teorema de Bolzano
+    if fa*fun(b) > 0:
+        raise ValueError("Error: f(a) y f(b) deben tener signos opuestos.")
+    
+    while i <= No:
+    #Paso 3
+        p = a + (b-a) /2
+        fp = fun(p)
+        
+    # Paso 4
+        if fp == 0 or (b - a)/2 < tol:
+            print("Procedimiento completado exitosamente")
+            return p
+        
+    # Paso 5
+        i += 1
+      
+     # Paso 6  
+        if fa*fp > 0:
+            a = p
+            fa = fp
+        else:
+            b = p
+            
+    return f"el metodo fracaso despues de {No} iteraciones"
+            
+def funcionMat(x):
+    return x**2 - 2
 
-#DEBO INGRESAR PARAMETROS
-def biseccion(f, a, b, tol, mex_iter):
-    # Paso 1
-    i=1
-    return
+def main():
 
+    a = 0
+    b = 3
+    tolerancia = 0.0000001
+    max_iter = 100
 
+    resultado = biseccion(funcionMat, a, b, tolerancia, max_iter)
+    print(f"Resultado: {resultado}")
 
-def funcion(x):
-    return x**2 - 2 # ejemplo de funcion: f(x) = x*2 -2
-
-a = 0 #limite inferior del intervalo
-b = 3 # Limite superior del intervalo
-tol = 0.0000001
-
+if __name__ == "__main__":
+    main()
