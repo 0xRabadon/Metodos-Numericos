@@ -1,3 +1,4 @@
+
 def biseccion(fun, a, b, tol, No):
     """
     fun es la funcion
@@ -10,7 +11,7 @@ def biseccion(fun, a, b, tol, No):
     i = 1
     fa = fun(a)
     
-    # # Paso 2 y corroboracion teorema de Bolzano
+    # Corroboracion
     if fa*fun(b) > 0:
         raise ValueError("Error: f(a) y f(b) deben tener signos opuestos.")
     
@@ -49,5 +50,7 @@ def main():
     resultado = biseccion(funcionMat, a, b, tolerancia, max_iter)
     print(f"Resultado: {resultado}")
 
+
 if __name__ == "__main__":
     main()
+
